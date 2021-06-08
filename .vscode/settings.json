@@ -1,0 +1,12 @@
+{
+    "ruby.lint": {
+        "rubocop": true
+    },
+    "[ruby]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": true,
+        "editor.formatOnType": true
+    },
+    "ruby.format": "rubocop",
+    "ruby.useLanguageServer": true
+}
