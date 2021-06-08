@@ -1,5 +1,10 @@
 module Types
   class MutationType < Types::BaseObject
+    field :delete_practice, mutation: Mutations::DeletePractice
+    field :update_practice, mutation: Mutations::UpdatePractice
+    field :create_practice, mutation: Mutations::CreatePractice
+    field :delete_group, mutation: Mutations::DeleteGroup
+    field :update_group, mutation: Mutations::UpdateGroup
     field :create_group, mutation: Mutations::CreateGroup
     field :delete_user, mutation: Mutations::DeleteUser
     field :update_user, mutation: Mutations::UpdateUser

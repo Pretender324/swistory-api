@@ -45,5 +45,18 @@ module Types
     def group(id:)
       Group.find(id)
     end
+
+    # practice
+    field :practices, [Types::PracticeType], null: false
+    def practices
+      Practice.all
+    end
+
+    field :practice, Types::PracticeType, null: false do
+      argument :id, Int, required: false
+    end
+    def practice(id:)
+      Practice.find(id)
+    end
   end
 end
