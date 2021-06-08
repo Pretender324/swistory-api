@@ -32,5 +32,18 @@ module Types
     def user(id:)
       User.find(id)
     end
+
+    # group
+    field :groups, [Types::GroupType], null: false
+    def groups
+      Group.all
+    end
+
+    field :group, Types::GroupType, null: false do
+      argument :id, Int, required: false
+    end
+    def group(id:)
+      Group.find(id)
+    end
   end
 end
