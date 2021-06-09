@@ -9,5 +9,6 @@ module Types
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :practices, [Types::PracticeType], null: true
+    field :group, Types::GroupType, null: false
   end
 end

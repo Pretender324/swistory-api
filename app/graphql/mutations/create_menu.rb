@@ -13,12 +13,15 @@ module Mutations
 
     field :menu, Types::MenuType, null: false
 
+    argument :group_id, ID, required: true
     argument :level, String, required: true
     argument :aim, String, required: true
     argument :description, String, required: true
 
     def resolve(**args)
-      menu = Menu.create(level: args[:level], aim: args[:aim], description: args[:description])
+      group = Group.find(args[:group_id])
+      menu = group.menus.build(level: args[:level], aim: args[:aim], description: args[:description])
+      menu.save
       {
         menu: menu,
         result: menu.errors.blank?
