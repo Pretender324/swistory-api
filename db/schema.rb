@@ -10,45 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_609_023_835) do
-  create_table 'groups', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+ActiveRecord::Schema.define(version: 2021_06_25_022926) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'menus', force: :cascade do |t|
-    t.string 'level'
-    t.string 'aim'
-    t.text 'description'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.integer 'group_id', null: false
-    t.index ['group_id'], name: 'index_menus_on_group_id'
+  create_table "menus", force: :cascade do |t|
+    t.string "level"
+    t.string "aim"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "group_id", null: false
+    t.index ["group_id"], name: "index_menus_on_group_id"
   end
 
-  create_table 'practices', force: :cascade do |t|
-    t.string 'category'
-    t.string 'system'
-    t.string 'distance'
-    t.integer 'times'
-    t.integer 'set'
-    t.text 'description'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.string 'on_time'
-    t.integer 'menu_id', null: false
-    t.index ['menu_id'], name: 'index_practices_on_menu_id'
+  create_table "practices", force: :cascade do |t|
+    t.string "category"
+    t.string "system"
+    t.string "distance"
+    t.integer "times"
+    t.integer "set"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "on_time"
+    t.integer "menu_id", null: false
+    t.index ["menu_id"], name: "index_practices_on_menu_id"
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'name'
-    t.string 'sex'
-    t.string 'email'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "sex"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key 'menus', 'groups'
-  add_foreign_key 'practices', 'menus'
+  add_foreign_key "menus", "groups"
+  add_foreign_key "practices", "menus"
 end
